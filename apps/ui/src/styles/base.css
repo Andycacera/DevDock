@@ -1,0 +1,93 @@
+@font-face {
+	font-family: 'Nunito';
+	src: url('../lib/assets/fonts/Nunito.woff2') format('woff2');
+	font-weight: 200 1000;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('../lib/assets/fonts/Nunito-Italic.woff2') format('woff2');
+	font-weight: 200 1000;
+	font-style: italic;
+	font-display: swap;
+}
+
+:root {
+	/* Typography */
+	--ds-font-sans:
+		'Nunito', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+		sans-serif;
+	--ds-font-mono:
+		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+		monospace;
+
+	/* Color system (semantic tokens) */
+	--ds-background: #131313;
+	--ds-foreground: #e2e2e2;
+
+	--ds-surface: #1f1f1f;
+	--ds-surface-2: #2a2a2a;
+
+	--ds-border: #424754;
+	--ds-border-strong: #8c909f;
+
+	--ds-primary: #adc6ff;
+	--ds-primary-foreground: #002e6a;
+	--ds-secondary: #bec6e0;
+	--ds-secondary-foreground: #283044;
+	--ds-accent: #ffb786;
+	--ds-accent-foreground: #502400;
+
+	--ds-success: #22c55e;
+	--ds-warning: #f59e0b;
+	--ds-danger: #ffb4ab;
+
+	/* Radius scale (lightly rounded for friendlier UI) */
+	--ds-radius-xs: 0.125rem;
+	--ds-radius-sm: 0.25rem;
+	--ds-radius-md: 0.375rem;
+	--ds-radius-lg: 0.5rem;
+	--ds-radius-xl: 0.625rem;
+	--ds-radius-2xl: 0.75rem;
+
+	/* Shadows (subtle depth) */
+	--ds-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+	--ds-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.25);
+	--ds-shadow-md: 0 2px 6px -1px rgb(0 0 0 / 0.35), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+	--ds-shadow-lg: 0 8px 20px -8px rgb(0 0 0 / 0.45);
+	--ds-shadow-xl: 0 16px 30px -12px rgb(0 0 0 / 0.55);
+
+	/* Spacing base */
+	--space-unit: 4px;
+
+	/* Custom variables */
+	--material-anim: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+html,
+body {
+	font-size: 16px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	color-scheme: dark;
+	font-family: var(--ds-font-sans);
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	background-color: var(--ds-background);
+	color: var(--ds-foreground);
+	font-family: var(--ds-font-sans);
+}
+
+* {
+	border-color: var(--ds-border);
+}

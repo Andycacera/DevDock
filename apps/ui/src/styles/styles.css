@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@import './base.css';
+
+@theme {
+	/* Typography */
+	--font-sans: var(--ds-font-sans);
+	--font-mono: var(--ds-font-mono);
+
+	/* Core semantic colors */
+	--color-background: var(--ds-background);
+	--color-foreground: var(--ds-foreground);
+	--color-surface: var(--ds-surface);
+	--color-surface-2: var(--ds-surface-2);
+	--color-border: var(--ds-border);
+	--color-border-strong: var(--ds-border-strong);
+
+	--color-primary: var(--ds-primary);
+	--color-primary-foreground: var(--ds-primary-foreground);
+	--color-secondary: var(--ds-secondary);
+	--color-secondary-foreground: var(--ds-secondary-foreground);
+	--color-accent: var(--ds-accent);
+	--color-accent-foreground: var(--ds-accent-foreground);
+
+	--color-success: var(--ds-success);
+	--color-warning: var(--ds-warning);
+	--color-danger: var(--ds-danger);
+
+	/* Radius scale (friendly, slightly rounded) */
+	--radius-xs: var(--ds-radius-xs);
+	--radius-sm: var(--ds-radius-sm);
+	--radius-md: var(--ds-radius-md);
+	--radius-lg: var(--ds-radius-lg);
+	--radius-xl: var(--ds-radius-xl);
+	--radius-2xl: var(--ds-radius-2xl);
+
+	/* Shadows */
+	--shadow-xs: var(--ds-shadow-xs);
+	--shadow-sm: var(--ds-shadow-sm);
+	--shadow-md: var(--ds-shadow-md);
+	--shadow-lg: var(--ds-shadow-lg);
+	--shadow-xl: var(--ds-shadow-xl);
+
+	/* Ease functions */
+	--ease-material: var(--material-anim);
+}
