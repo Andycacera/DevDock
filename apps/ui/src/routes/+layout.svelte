@@ -9,4 +9,8 @@
   <title>DevDock</title>
   <link rel="icon" href={favicon} />
 </svelte:head>
-{@render children()}
+<div class="flex flex-col w-full h-full justify-center items-center gap-8 p-8">
+  <div class="flex flex-col w-full h-full justify-start items-center">
+    {@render children()}
+  </div>
+</div>

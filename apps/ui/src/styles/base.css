@@ -1,93 +1,170 @@
 @font-face {
-	font-family: 'Nunito';
-	src: url('../lib/assets/fonts/Nunito.woff2') format('woff2');
-	font-weight: 200 1000;
-	font-style: normal;
-	font-display: swap;
+  font-family: 'Nunito';
+  src: url('../lib/assets/fonts/Nunito.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Nunito';
-	src: url('../lib/assets/fonts/Nunito-Italic.woff2') format('woff2');
-	font-weight: 200 1000;
-	font-style: italic;
-	font-display: swap;
+  font-family: 'Nunito';
+  src: url('../lib/assets/fonts/Nunito-Italic.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
 }
 
 :root {
-	/* Typography */
-	--ds-font-sans:
-		'Nunito', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-		sans-serif;
-	--ds-font-mono:
-		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-		monospace;
+  /* Typography */
+  --ds-font-sans:
+    'Nunito', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --ds-font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
 
-	/* Color system (semantic tokens) */
-	--ds-background: #131313;
-	--ds-foreground: #e2e2e2;
+  /* Color system (semantic tokens) */
+  --ds-background: #131313;
+  --ds-background-2: #0f0f0f;
+  --ds-foreground: #e2e2e2;
 
-	--ds-surface: #1f1f1f;
-	--ds-surface-2: #2a2a2a;
+  --ds-surface: #111111;
+  --ds-surface-2: #2a2a2a;
 
-	--ds-border: #424754;
-	--ds-border-strong: #8c909f;
+  --ds-border: #424754;
+  --ds-border-muted: #262628;
+  --ds-border-strong: #8c909f;
 
-	--ds-primary: #adc6ff;
-	--ds-primary-foreground: #002e6a;
-	--ds-secondary: #bec6e0;
-	--ds-secondary-foreground: #283044;
-	--ds-accent: #ffb786;
-	--ds-accent-foreground: #502400;
+  --ds-disabled: #424754;
+  --ds-muted: #6c6f7a;
+  --ds-high: #71717a;
+  --ds-base: #e2e2e2;
 
-	--ds-success: #22c55e;
-	--ds-warning: #f59e0b;
-	--ds-danger: #ffb4ab;
+  /* --ds-primary: #adc6ff;
+  --ds-primary-foreground: #002e6a; */
+  --ds-primary: #005ac2;
+  --ds-primary-bg: #0f1c36;
+  --ds-primary-foreground: #edf0ff;
 
-	/* Radius scale (lightly rounded for friendlier UI) */
-	--ds-radius-xs: 0.125rem;
-	--ds-radius-sm: 0.25rem;
-	--ds-radius-md: 0.375rem;
-	--ds-radius-lg: 0.5rem;
-	--ds-radius-xl: 0.625rem;
-	--ds-radius-2xl: 0.75rem;
+  --ds-primary-100: #d8e2ff;
+  --ds-primary-200: #adc6ff;
+  --ds-primary-300: #81aaff;
+  --ds-primary-400: #4d8eff;
+  --ds-primary-500: #2573e6;
+  --ds-primary-600: #005ac2;
+  --ds-primary-700: #004395;
+  --ds-primary-800: #002e6a;
+  --ds-primary-900: #001a42;
 
-	/* Shadows (subtle depth) */
-	--ds-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.2);
-	--ds-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.25);
-	--ds-shadow-md: 0 2px 6px -1px rgb(0 0 0 / 0.35), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-	--ds-shadow-lg: 0 8px 20px -8px rgb(0 0 0 / 0.45);
-	--ds-shadow-xl: 0 16px 30px -12px rgb(0 0 0 / 0.55);
+  /* --ds-secondary: #bec6e0;
+  --ds-secondary-foreground: #283044; */
+  --ds-secondary: #283044;
+  --ds-secondary-bg: #0f1836;
+  --ds-secondary-foreground: #bec6e0;
 
-	/* Spacing base */
-	--space-unit: 4px;
+  --ds-secondary-100: #eef0ff;
+  --ds-secondary-200: #eef0ff;
+  --ds-secondary-300: #bec6e0;
+  --ds-secondary-400: #a3abc4;
+  --ds-secondary-500: #8990a8;
+  --ds-secondary-600: #6f778e;
+  --ds-secondary-700: #565e74;
+  --ds-secondary-800: #3f465c;
+  --ds-secondary-900: #283044;
 
-	/* Custom variables */
-	--material-anim: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --ds-accent: #ffb786;
+  --ds-accent-foreground: #502400;
+  --ds-accent-100: #ffede4;
+  --ds-accent-200: #ffdcc6;
+  --ds-accent-300: #ffb786;
+  --ds-accent-400: #ff8e33;
+  --ds-accent-500: #df7412;
+  --ds-accent-600: #df7412;
+  --ds-accent-700: #964900;
+  --ds-accent-800: #723600;
+  --ds-accent-900: #502400;
+
+  --ds-success: #22c55e;
+  --ds-success-bg: #2b332e;
+  --ds-success-100: #def5e1;
+  --ds-success-200: #bdebc3;
+  --ds-success-300: #9be1a6;
+  --ds-success-400: #75d589;
+  --ds-success-500: #46ca6c;
+  --ds-success-600: #00a13d;
+  --ds-success-700: #008f2d;
+  --ds-success-800: #007e1d;
+  --ds-success-900: #006d09;
+
+  --ds-warning: #f59e0b;
+  --ds-warning-bg: #4b4335;
+  --ds-warning-100: #fff7a7;
+  --ds-warning-200: #ffe872;
+  --ds-warning-300: #f9d630;
+  --ds-warning-400: #e9c100;
+  --ds-warning-500: #d5ad00;
+  --ds-warning-600: #d4870b;
+  --ds-warning-700: #bd6f0e;
+  --ds-warning-800: #a95a12;
+  --ds-warning-900: #944918;
+
+  --ds-danger: #ffb4ab;
+  --ds-danger-bg: #552c27;
+  --ds-danger-100: #ffe4de;
+  --ds-danger-200: #ffc9bd;
+  --ds-danger-300: #ffad9d;
+  --ds-danger-400: #ff917e;
+  --ds-danger-500: #ff7361;
+  --ds-danger-600: #db4337;
+  --ds-danger-700: #b71e1e;
+  --ds-danger-800: #a50012;
+  --ds-danger-900: #930004;
+
+  /* Radius scale (lightly rounded for friendlier UI) */
+  --ds-radius-xs: 0.125rem;
+  --ds-radius-sm: 0.25rem;
+  --ds-radius-md: 0.375rem;
+  --ds-radius-lg: 0.5rem;
+  --ds-radius-xl: 0.625rem;
+  --ds-radius-2xl: 0.75rem;
+
+  /* Shadows (subtle depth) */
+  --ds-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+  --ds-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.25);
+  --ds-shadow-md: 0 2px 6px -1px rgb(0 0 0 / 0.35), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --ds-shadow-lg: 0 8px 20px -8px rgb(0 0 0 / 0.45);
+  --ds-shadow-xl: 0 16px 30px -12px rgb(0 0 0 / 0.55);
+
+  /* Spacing base */
+  --space-unit: 4px;
+
+  /* Custom variables */
+  --material-anim: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 html,
 body {
-	font-size: 16px;
-	height: 100%;
-	margin: 0;
-	padding: 0;
+  font-size: 16px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-	color-scheme: dark;
-	font-family: var(--ds-font-sans);
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  font-family: var(--ds-font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-	background-color: var(--ds-background);
-	color: var(--ds-foreground);
-	font-family: var(--ds-font-sans);
+  background-color: var(--ds-background);
+  color: var(--ds-foreground);
+  font-family: var(--ds-font-sans);
 }
 
 * {
-	border-color: var(--ds-border);
+  border-color: var(--ds-border);
+  transition-timing-function: var(--material-anim);
 }

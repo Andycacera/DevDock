@@ -3,46 +3,124 @@
 @plugin '@tailwindcss/typography';
 
 @import './base.css';
+@import './forms.css';
+
+/* Components */
+@import './components/cards.css';
+@import './components/buttons.css';
 
 @theme {
-	/* Typography */
-	--font-sans: var(--ds-font-sans);
-	--font-mono: var(--ds-font-mono);
+  /* Typography */
+  --font-sans: var(--ds-font-sans);
+  --font-mono: var(--ds-font-mono);
 
-	/* Core semantic colors */
-	--color-background: var(--ds-background);
-	--color-foreground: var(--ds-foreground);
-	--color-surface: var(--ds-surface);
-	--color-surface-2: var(--ds-surface-2);
-	--color-border: var(--ds-border);
-	--color-border-strong: var(--ds-border-strong);
+  /* Core semantic colors */
+  --color-background: var(--ds-background);
+  --color-background-2: var(--ds-background-2);
+  --color-foreground: var(--ds-foreground);
+  --color-surface: var(--ds-surface);
+  --color-surface-2: var(--ds-surface-2);
+  --color-border: var(--ds-border);
+  --color-border-muted: var(--ds-border-muted);
+  --color-border-strong: var(--ds-border-strong);
 
-	--color-primary: var(--ds-primary);
-	--color-primary-foreground: var(--ds-primary-foreground);
-	--color-secondary: var(--ds-secondary);
-	--color-secondary-foreground: var(--ds-secondary-foreground);
-	--color-accent: var(--ds-accent);
-	--color-accent-foreground: var(--ds-accent-foreground);
+  --color-muted: var(--ds-muted);
+  --color-high: var(--ds-high);
+  --color-base: var(--ds-base);
+  --color-disabled: var(--ds-disabled);
 
-	--color-success: var(--ds-success);
-	--color-warning: var(--ds-warning);
-	--color-danger: var(--ds-danger);
+  --color-primary: var(--ds-primary);
+  --color-primary-bg: var(--ds-primary-bg);
+  --color-primary-foreground: var(--ds-primary-foreground);
 
-	/* Radius scale (friendly, slightly rounded) */
-	--radius-xs: var(--ds-radius-xs);
-	--radius-sm: var(--ds-radius-sm);
-	--radius-md: var(--ds-radius-md);
-	--radius-lg: var(--ds-radius-lg);
-	--radius-xl: var(--ds-radius-xl);
-	--radius-2xl: var(--ds-radius-2xl);
+  --color-primary-100: var(--ds-primary-100);
+  --color-primary-200: var(--ds-primary-200);
+  --color-primary-300: var(--ds-primary-300);
+  --color-primary-400: var(--ds-primary-400);
+  --color-primary-500: var(--ds-primary-500);
+  --color-primary-600: var(--ds-primary-600);
+  --color-primary-700: var(--ds-primary-700);
+  --color-primary-800: var(--ds-primary-800);
+  --color-primary-900: var(--ds-primary-900);
 
-	/* Shadows */
-	--shadow-xs: var(--ds-shadow-xs);
-	--shadow-sm: var(--ds-shadow-sm);
-	--shadow-md: var(--ds-shadow-md);
-	--shadow-lg: var(--ds-shadow-lg);
-	--shadow-xl: var(--ds-shadow-xl);
+  --color-secondary: var(--ds-secondary);
+  --color-secondary-bg: var(--ds-secondary-bg);
+  --color-secondary-foreground: var(--ds-secondary-foreground);
 
-	/* Ease functions */
-	--ease-material: var(--material-anim);
+  --color-secondary-100: var(--ds-secondary-100);
+  --color-secondary-200: var(--ds-secondary-200);
+  --color-secondary-300: var(--ds-secondary-300);
+  --color-secondary-400: var(--ds-secondary-400);
+  --color-secondary-500: var(--ds-secondary-500);
+  --color-secondary-600: var(--ds-secondary-600);
+  --color-secondary-700: var(--ds-secondary-700);
+  --color-secondary-800: var(--ds-secondary-800);
+  --color-secondary-900: var(--ds-secondary-900);
+
+  --color-accent: var(--ds-accent);
+  --color-accent-foreground: var(--ds-accent-foreground);
+
+  --color-accent-100: var(--ds-accent-100);
+  --color-accent-200: var(--ds-accent-200);
+  --color-accent-300: var(--ds-accent-300);
+  --color-accent-400: var(--ds-accent-400);
+  --color-accent-500: var(--ds-accent-500);
+  --color-accent-600: var(--ds-accent-600);
+  --color-accent-700: var(--ds-accent-700);
+  --color-accent-800: var(--ds-accent-800);
+  --color-accent-900: var(--ds-accent-900);
+
+  --color-success: var(--ds-success);
+  --color-success-bg: var(--ds-success-bg);
+  --color-success-100: var(--ds-success-100);
+  --color-success-200: var(--ds-success-200);
+  --color-success-300: var(--ds-success-300);
+  --color-success-400: var(--ds-success-400);
+  --color-success-500: var(--ds-success-500);
+  --color-success-600: var(--ds-success-600);
+  --color-success-700: var(--ds-success-700);
+  --color-success-800: var(--ds-success-800);
+  --color-success-900: var(--ds-success-900);
+
+  --color-warning: var(--ds-warning);
+  --color-warning-bg: var(--ds-warning-bg);
+  --color-warning-100: var(--ds-warning-100);
+  --color-warning-200: var(--ds-warning-200);
+  --color-warning-300: var(--ds-warning-300);
+  --color-warning-400: var(--ds-warning-400);
+  --color-warning-500: var(--ds-warning-500);
+  --color-warning-600: var(--ds-warning-600);
+  --color-warning-700: var(--ds-warning-700);
+  --color-warning-800: var(--ds-warning-800);
+  --color-warning-900: var(--ds-warning-900);
+
+  --color-danger: var(--ds-danger);
+  --color-danger-bg: var(--ds-danger-bg);
+  --color-danger-100: var(--ds-danger-100);
+  --color-danger-200: var(--ds-danger-200);
+  --color-danger-300: var(--ds-danger-300);
+  --color-danger-400: var(--ds-danger-400);
+  --color-danger-500: var(--ds-danger-500);
+  --color-danger-600: var(--ds-danger-600);
+  --color-danger-700: var(--ds-danger-700);
+  --color-danger-800: var(--ds-danger-800);
+  --color-danger-900: var(--ds-danger-900);
+
+  /* Radius scale (friendly, slightly rounded) */
+  --radius-xs: var(--ds-radius-xs);
+  --radius-sm: var(--ds-radius-sm);
+  --radius-md: var(--ds-radius-md);
+  --radius-lg: var(--ds-radius-lg);
+  --radius-xl: var(--ds-radius-xl);
+  --radius-2xl: var(--ds-radius-2xl);
+
+  /* Shadows */
+  --shadow-xs: var(--ds-shadow-xs);
+  --shadow-sm: var(--ds-shadow-sm);
+  --shadow-md: var(--ds-shadow-md);
+  --shadow-lg: var(--ds-shadow-lg);
+  --shadow-xl: var(--ds-shadow-xl);
+
+  /* Ease functions */
+  --ease-material: var(--material-anim);
 }

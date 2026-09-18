@@ -1,0 +1,20 @@
+[data-card] {
+  background-color: var(--ds-surface);
+  border-radius: var(--ds-radius-md);
+  border: solid 3px var(--ds-border-muted);
+
+  &[data-inverted] {
+    background-color: var(--ds-surface-2);
+    border: solid 3px var(--ds-disabled);
+  }
+
+  &[data-bg-primary] {
+    background-color: var(--ds-primary-900);
+    border-color: var(--ds-primary-600);
+  }
+
+  &[data-bg-secondary] {
+    background-color: var(--ds-secondary-900);
+    border-color: var(--ds-secondary-600);
+  }
+}
