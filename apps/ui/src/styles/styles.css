@@ -13,6 +13,8 @@
   /* Typography */
   --font-sans: var(--ds-font-sans);
   --font-mono: var(--ds-font-mono);
+  --font-jb-sans: var(--ds-jb-font-sans);
+  --font-jb-mono: var(--ds-jb-font-mono);
 
   /* Core semantic colors */
   --color-background: var(--ds-background);

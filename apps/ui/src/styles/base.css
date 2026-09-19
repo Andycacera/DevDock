@@ -14,6 +14,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'JetBrains';
+  src: url('../lib/assets/fonts/JetBrainsMono-VariableFont_wght.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains';
+  src: url('../lib/assets/fonts/JetBrainsMono-Italic-VariableFont_wght.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   /* Typography */
   --ds-font-sans:
@@ -22,6 +38,13 @@
   --ds-font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
+
+  --ds-jb-font-sans:
+    'JetBrains', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  --ds-jb-font-mono:
+    'JetBrains', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
 
   /* Color system (semantic tokens) */
   --ds-background: #131313;
@@ -165,6 +188,5 @@ body {
 }
 
 * {
-  border-color: var(--ds-border);
   transition-timing-function: var(--material-anim);
 }

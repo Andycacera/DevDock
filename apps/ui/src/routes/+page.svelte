@@ -62,9 +62,9 @@
     <UiSelect bind:value={selectedArea} items={selectItems} placeholder="Select a team area" />
     <UiDatePicker />
 
-    <UiSwitch  size="sm"/>
-    <UiSwitch  />
-    <UiSwitch size="lg"/>
+    <UiSwitch size="sm" />
+    <UiSwitch />
+    <UiSwitch size="lg" />
     <UiSwitch checked color="--ds-warning-700" />
   </div>
 </div>
@@ -75,10 +75,15 @@
     <div data-card class="p-4 w-75">Card</div>
     <div class="p-4 bg-background-2 rounded-md">
       <div data-card data-inverted class="p-4 w-75">Card inverted</div>
-
     </div>
-    
+
     <div data-card data-bg-primary class="p-4 w-75">Card with primary background</div>
     <div data-card data-bg-secondary class="p-4 w-75">Card with secondary background</div>
   </div>
+</div>
+
+<div class="flex flex-col gap-2 w-full mt-4">
+  <span>Links</span>
+  <a href="#/dashboard">Dashboard</a>
+  <a href="#/tray">Tray</a>
 </div>

@@ -1,0 +1,14 @@
+{
+  "yaml.schemas": {
+    "file:///home/andycr/.vscode/extensions/continue.continue-1.2.22-linux-x64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
+    "file:///c%3A/Users/andy_/.vscode/extensions/continue.continue-1.2.22-win32-x64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
+    "file:///home/andycaceres/.vscode-server/extensions/continue.continue-1.0.23-linux-x64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
+    "https://www.artillery.io/schema.json": []
+  }
+}
