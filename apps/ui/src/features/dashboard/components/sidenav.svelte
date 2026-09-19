@@ -15,8 +15,8 @@
 
 <div class="flex flex-col w-85 h-full p-4 bg-surface border-r-3 border-r-border-muted">
   <!-- TOP -->
-  <div class="flex flex-col h-full gap-4">
-    <span class="font-jb-sans font-semibold uppercase text-lg text-muted">Navigation</span>
+  <div class="flex flex-col h-full gap-2">
+    <span class="font-jb-sans font-semibold uppercase text-lg text-muted mb-2">Navigation</span>
     {#each items as navItem (navItem.label)}
       <a
         href={`#${navItem.path}`}

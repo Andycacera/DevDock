@@ -4,6 +4,18 @@ DevDock is a lightweight Linux desktop utility for developers who manage multipl
 
 It helps you detect running services, map them to friendly local domains like `app.localhost` or `api.localhost`, and access them from a simple desktop dashboard or GNOME tray panel.
 
+## Documentation
+
+Full product and technical documentation lives in [`docs/`](./docs/README.md):
+
+- [Overview](./docs/overview.md) — what DevDock is and why it exists
+- [Features](./docs/features.md) — functional capabilities
+- [UX](./docs/ux.md) — dashboard and tray design
+- [Roadmap](./docs/roadmap.md) — delivery phases and MVP scope
+- [Architecture](./docs/architecture/README.md) — internal structure and decisions
+- [Modules](./docs/technical/modules.md) — technical module breakdown
+- [Domain model](./docs/technical/domain-model.md) — core types and state rules
+
 ## Why DevDock exists
 
 When you work with several frontend apps, APIs, or internal tools, it is easy to end up juggling raw ports and IP addresses:

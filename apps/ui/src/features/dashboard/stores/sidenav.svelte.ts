@@ -18,13 +18,6 @@ const SIDENAV_ITEMS: SidenavItem[] = [
     icon: {
       name: 'material-symbols:dashboard-rounded'
     }
-  },
-  {
-    label: 'Tray',
-    path: '/tray',
-    icon: {
-      name: 'material-symbols:chat-rounded'
-    }
   }
 ]
 
