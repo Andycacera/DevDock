@@ -1,6 +1,6 @@
 import { validateRoute } from '@devdock/core';
 import type { NewRoute, RouteMapping, RoutePatch, RouteRepository } from '@devdock/core';
-import { notFound, validationError } from '../errors';
+import { DevDockError } from '@devdock/shared';
 
 /** `snapshot()` is a sync view used by the fixture source to compute status. */
 export interface MutableRouteRepository extends RouteRepository {
@@ -39,7 +39,11 @@ export function createInMemoryRouteRepository(
     async create(input) {
       const result = validateRoute(input, { existingRoutes: routes });
       if (!result.valid) {
-        throw validationError(result.issues.map((entry) => entry.message));
+        throw new DevDockError(
+          'VALIDATION_FAILED',
+          'Route validation failed',
+          result.issues.map((entry) => entry.message)
+        );
       }
 
       const sourceType = input.sourceType ?? 'local';
@@ -65,7 +69,7 @@ export function createInMemoryRouteRepository(
       const index = routes.findIndex((entry) => entry.id === id);
       const current = routes[index];
       if (!current) {
-        throw notFound(id);
+        throw new DevDockError('ROUTE_NOT_FOUND', `Route "${id}" not found`);
       }
 
       const merged: RouteMapping = {
@@ -77,7 +81,11 @@ export function createInMemoryRouteRepository(
 
       const result = validateRoute(merged, { existingRoutes: routes, ignoreRouteId: id });
       if (!result.valid) {
-        throw validationError(result.issues.map((entry) => entry.message));
+        throw new DevDockError(
+          'VALIDATION_FAILED',
+          'Route validation failed',
+          result.issues.map((entry) => entry.message)
+        );
       }
 
       routes[index] = merged;
@@ -87,7 +95,7 @@ export function createInMemoryRouteRepository(
     async delete(id) {
       const index = routes.findIndex((entry) => entry.id === id);
       if (index === -1) {
-        throw notFound(id);
+        throw new DevDockError('ROUTE_NOT_FOUND', `Route "${id}" not found`);
       }
       routes.splice(index, 1);
     }

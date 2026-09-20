@@ -9,8 +9,8 @@
   "scripts": {
     "dev:bridge": "bun run --cwd apps/dev-bridge dev",
     "dev:ui": "bun run --cwd apps/ui dev",
-    "test": "bun test packages/core packages/shared apps/dev-bridge",
-    "check:packages": "tsc --noEmit -p packages/shared/tsconfig.json && tsc --noEmit -p packages/core/tsconfig.json",
+    "test": "bun test packages/core packages/shared packages/mock apps/dev-bridge",
+    "check:packages": "tsc --noEmit -p packages/shared/tsconfig.json && tsc --noEmit -p packages/core/tsconfig.json && tsc --noEmit -p packages/mock/tsconfig.json",
     "check:bridge": "tsc --noEmit -p apps/dev-bridge/tsconfig.json",
     "check:ui": "bun run --cwd apps/ui check"
   }

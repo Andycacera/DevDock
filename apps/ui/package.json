@@ -17,6 +17,9 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@devdock/core": "workspace:*",
+    "@devdock/mock": "workspace:*",
+    "@devdock/shared": "workspace:*",
     "@iconify/svelte": "^5.2.1",
     "bits-ui": "^2.18.0"
   },

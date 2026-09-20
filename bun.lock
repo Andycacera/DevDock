@@ -9,6 +9,7 @@
       "version": "0.0.1",
       "dependencies": {
         "@devdock/core": "workspace:*",
+        "@devdock/mock": "workspace:*",
         "@devdock/shared": "workspace:*",
         "cors": "^2.8.6",
         "express": "^5.2.1",
@@ -23,6 +24,9 @@
       "name": "devdock-ui",
       "version": "0.0.1",
       "dependencies": {
+        "@devdock/core": "workspace:*",
+        "@devdock/mock": "workspace:*",
+        "@devdock/shared": "workspace:*",
         "@iconify/svelte": "^5.2.1",
         "bits-ui": "^2.18.0",
       },
@@ -68,6 +72,17 @@
         "@types/bun": "latest",
       },
     },
+    "packages/mock": {
+      "name": "@devdock/mock",
+      "version": "0.0.1",
+      "dependencies": {
+        "@devdock/core": "workspace:*",
+        "@devdock/shared": "workspace:*",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
+      },
+    },
     "packages/shared": {
       "name": "@devdock/shared",
       "version": "0.0.1",
@@ -83,6 +98,8 @@
     "@devdock/core": ["@devdock/core@workspace:packages/core"],
 
     "@devdock/dev-bridge": ["@devdock/dev-bridge@workspace:apps/dev-bridge"],
+
+    "@devdock/mock": ["@devdock/mock@workspace:packages/mock"],
 
     "@devdock/shared": ["@devdock/shared@workspace:packages/shared"],
 

@@ -1,22 +1,20 @@
+import { DevDockError } from '@devdock/shared';
 import type { DevDockErrorCode } from '@devdock/shared';
 
-/** Error carried across the HTTP boundary as `{ error: { code, message } }`. */
-export class BridgeError extends Error {
-  readonly code: DevDockErrorCode;
+/**
+ * HTTP-aware error: adds a status code on top of the shared `DevDockError`.
+ *
+ * Domain/in-memory layers throw plain `DevDockError`; the HTTP layer maps it to
+ * a status in the error handler.
+ */
+export class BridgeError extends DevDockError {
   readonly status: number;
-  readonly details: string[];
 
   constructor(code: DevDockErrorCode, message: string, status = 400, details: string[] = []) {
-    super(message);
+    super(code, message, details);
     this.name = 'BridgeError';
-    this.code = code;
     this.status = status;
-    this.details = details;
   }
-}
-
-export function validationError(messages: string[]): BridgeError {
-  return new BridgeError('VALIDATION_FAILED', 'Route validation failed', 400, messages);
 }
 
 export function notFound(id: string): BridgeError {

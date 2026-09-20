@@ -1,6 +1,6 @@
 import { computeStatus } from '@devdock/core';
 import type { DetectedService, RouteMapping, ServiceSource } from '@devdock/core';
-import { FIXTURE_SERVICES } from '../fixtures/services';
+import { FIXTURE_SERVICES } from './fixtures/services';
 
 /**
  * Serves fixture services and derives `hasDomain`/`status` from the current

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 import { createFixtureSource } from './fixture-source';
-import { FIXTURE_ROUTES } from '../fixtures/routes';
+import { FIXTURE_ROUTES } from './fixtures/routes';
 
 describe('createFixtureSource', () => {
   it('marks every service as unassigned when there are no routes', async () => {
