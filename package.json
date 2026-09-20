@@ -1,0 +1,17 @@
+{
+  "name": "devdock",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:bridge": "bun run --cwd apps/dev-bridge dev",
+    "dev:ui": "bun run --cwd apps/ui dev",
+    "test": "bun test packages/core packages/shared apps/dev-bridge",
+    "check:packages": "tsc --noEmit -p packages/shared/tsconfig.json && tsc --noEmit -p packages/core/tsconfig.json",
+    "check:bridge": "tsc --noEmit -p apps/dev-bridge/tsconfig.json",
+    "check:ui": "bun run --cwd apps/ui check"
+  }
+}
