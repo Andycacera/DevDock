@@ -1,10 +1,10 @@
 <script lang="ts">
   import { PUBLIC_ENVIRONMENT, PUBLIC_VERSION } from '$env/static/public'
   import Icon from '@iconify/svelte'
-  import { sidenavStore } from '../stores/sidenav.svelte'
+  import { useSidenavStore } from '$features/dashboard/dashboard-context.svelte'
   import { page } from '$app/state'
 
-  const { items } = sidenavStore
+  const sidenav = useSidenavStore()
 
   const currentPath = $derived(page.url.hash.replace(/^#/, '').split('?')[0] || '/')
 
@@ -17,7 +17,7 @@
   <!-- TOP -->
   <div class="flex flex-col h-full gap-2">
     <span class="font-jb-sans font-semibold uppercase text-lg text-muted mb-2">Navigation</span>
-    {#each items as navItem (navItem.label)}
+    {#each sidenav.items as navItem (navItem.label)}
       <a
         href={`#${navItem.path}`}
         data-btn

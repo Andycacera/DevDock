@@ -1,6 +1,9 @@
 <script lang="ts">
-  import Header from '../../features/dashboard/components/header.svelte'
-  import Sidenav from '../../features/dashboard/components/sidenav.svelte'
+  import Header from '$features/dashboard/components/header.svelte'
+  import Sidenav from '$features/dashboard/components/sidenav.svelte'
+  import { provideDashboardStores } from '$features/dashboard/dashboard-context.svelte'
+
+  provideDashboardStores()
 
   let { children } = $props()
 </script>

@@ -9,6 +9,9 @@ const config = {
 	// },
 	preprocess: vitePreprocess(),
 	kit: {
+		alias: {
+			$features: 'src/features'
+		},
 		router: {
 			type: 'hash'
 		},

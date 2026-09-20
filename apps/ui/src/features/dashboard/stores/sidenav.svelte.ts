@@ -7,11 +7,12 @@ export interface SidenavItem {
   }
 }
 
+/** Model (state) exposed by the sidenav store. */
 export interface SidenavState {
-  items: SidenavItem[]
+  readonly items: SidenavItem[]
 }
 
-const SIDENAV_ITEMS: SidenavItem[] = [
+const SIDENAV_ITEMS: readonly SidenavItem[] = [
   {
     label: 'Dashboard',
     path: '/dashboard',
@@ -21,8 +22,8 @@ const SIDENAV_ITEMS: SidenavItem[] = [
   }
 ]
 
-function createSidenavStore(): SidenavState {
-  const items: SidenavItem[] = $state(SIDENAV_ITEMS)
+export function createSidenavStore(): SidenavState {
+  const items = $state<SidenavItem[]>([...SIDENAV_ITEMS])
 
   return {
     get items() {
@@ -30,5 +31,3 @@ function createSidenavStore(): SidenavState {
     }
   }
 }
-
-export const sidenavStore = createSidenavStore()
