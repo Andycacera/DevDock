@@ -54,6 +54,7 @@ UI-scoped notes live next to the code they describe:
 | Doc | Covers |
 |-----|--------|
 | [apps/ui/docs/adapters-environment.md](../../apps/ui/docs/adapters-environment.md) | Adapter environment detection pattern |
+| [apps/ui/docs/state-management.md](../../apps/ui/docs/state-management.md) | Store scopes and state management rules |
 
 ## Status
 
