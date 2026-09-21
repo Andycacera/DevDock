@@ -1,0 +1,69 @@
+[data-chip] {
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+
+  &[data-pr] {
+    background-color: color-mix(in oklab, var(--color-primary-800) 30%, transparent);
+    color: var(--color-primary-200);
+  }
+
+  &[data-sc] {
+    background-color: color-mix(in oklab, var(--color-secondary-800) 30%, transparent);
+    color: var(--color-secondary-200);
+  }
+
+  &[data-muted] {
+    background-color: color-mix(in oklab, var(--color-border-muted) 30%, transparent);
+    color: var(--color-muted);
+  }
+
+  &[data-success] {
+    background-color: color-mix(in oklab, var(--color-success-900) 30%, transparent);
+    color: var(--color-success-200);
+  }
+
+  &[data-warning] {
+    background-color: color-mix(in oklab, var(--color-warning-900) 30%, transparent);
+    color: var(--color-warning-200);
+  }
+
+  &[data-danger] {
+    background-color: color-mix(in oklab, var(--color-danger-800) 30%, transparent);
+    color: var(--color-danger-200);
+  }
+
+  &[data-inverted] {
+    background-color: color-mix(in oklab, var(--color-foreground) 30%, transparent);
+    color: var(--color-foreground);
+  }
+
+  &[data-aqua-cyan] {
+    background-color: color-mix(in oklab, var(--color-aqua-cyan-800) 30%, transparent);
+    color: var(--color-aqua-cyan-200);
+  }
+
+  &[data-spring-green] {
+    background-color: color-mix(in oklab, var(--color-spring-green-700) 30%, transparent);
+    color: var(--color-spring-green-200);
+  }
+
+  &[data-signal-orange] {
+    background-color: color-mix(in oklab, var(--color-signal-orange-600) 30%, transparent);
+    color: var(--color-signal-orange-200);
+  }
+
+  &[data-electric-purple] {
+    background-color: color-mix(in oklab, var(--color-electric-purple-600) 30%, transparent);
+    color: var(--color-electric-purple-200);
+  }
+
+  &[data-vivid-magenta] {
+    background-color: color-mix(in oklab, var(--color-vivid-magenta-600) 30%, transparent);
+    color: var(--color-vivid-magenta-200);
+  }
+
+  &[data-berry-pink] {
+    background-color: color-mix(in oklab, var(--color-berry-pink-600) 30%, transparent);
+    color: var(--color-berry-pink-200);
+  }
+}

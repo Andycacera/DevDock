@@ -32,8 +32,8 @@
     {/each}
   </div>
   <!-- BOTTOM -->
-  <div class="flex justify-start">
-    <span class="text-sm text-primary-400 font-bold opacity-85"
+  <div class="flex justify-end w-full">
+    <span class="text-sm text-primary-300 font-bold opacity-50"
       >v{PUBLIC_VERSION}-{PUBLIC_ENVIRONMENT}</span
     >
   </div>
@@ -41,7 +41,7 @@
 
 <style>
   a.selected {
-    background-color: var(--ds-primary-900);
+    background-color: color-mix(in oklab, var(--ds-primary-900) 30%, transparent);
     color: var(--ds-primary-300);
     border-right: solid 3px var(--ds-primary-300);
 

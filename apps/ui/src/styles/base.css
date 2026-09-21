@@ -143,6 +143,74 @@
   --ds-danger-800: #a50012;
   --ds-danger-900: #930004;
 
+  /* Other colors */
+
+  /* Aqua Cyan */
+  --ds-aqua-cyan-100: #d6f1ff;
+  --ds-aqua-cyan-200: #abe7ff;
+  --ds-aqua-cyan-300: #7fdeff;
+  --ds-aqua-cyan-400: #4cd7fe;
+  --ds-aqua-cyan-500: #24c2e5;
+  --ds-aqua-cyan-600: #01a8bf;
+  --ds-aqua-cyan-700: #007f93;
+  --ds-aqua-cyan-800: #005868;
+  --ds-aqua-cyan-900: #003440;
+
+  /* Spring Green */
+  --ds-spring-green-100: #d6fff1;
+  --ds-spring-green-200: #abffdf;
+  --ds-spring-green-300: #7fffcb;
+  --ds-spring-green-400: #4cfeaf;
+  --ds-spring-green-500: #24e588;
+  --ds-spring-green-600: #01bf58;
+  --ds-spring-green-700: #009346;
+  --ds-spring-green-800: #006833;
+  --ds-spring-green-900: #004022;
+
+  /* Signal Orange */
+  --ds-signal-orange-100: #ffe6d6;
+  --ds-signal-orange-200: #ffc7ab;
+  --ds-signal-orange-300: #ffa87f;
+  --ds-signal-orange-400: #fe7d4c;
+  --ds-signal-orange-500: #e55224;
+  --ds-signal-orange-600: #bf2301;
+  --ds-signal-orange-700: #931d00;
+  --ds-signal-orange-800: #681600;
+  --ds-signal-orange-900: #401000;
+
+  /* Electric Purple */
+  --ds-electric-purple-100: #eed6ff;
+  --ds-electric-purple-200: #d8abff;
+  --ds-electric-purple-300: #c17fff;
+  --ds-electric-purple-400: #a14cfe;
+  --ds-electric-purple-500: #7924e5;
+  --ds-electric-purple-600: #4901bf;
+  --ds-electric-purple-700: #3a0093;
+  --ds-electric-purple-800: #2b0068;
+  --ds-electric-purple-900: #1d0040;
+
+  /* Vivid Magenta */
+  --ds-vivid-magenta-100: #ffd6f2;
+  --ds-vivid-magenta-200: #ffabe9;
+  --ds-vivid-magenta-300: #ff7fe0;
+  --ds-vivid-magenta-400: #fe4cdb;
+  --ds-vivid-magenta-500: #e524c6;
+  --ds-vivid-magenta-600: #bf01ac;
+  --ds-vivid-magenta-700: #930082;
+  --ds-vivid-magenta-800: #68005a;
+  --ds-vivid-magenta-900: #400035;
+
+  /* Berry Pink */
+  --ds-berry-pink-100: #ffd6e4;
+  --ds-berry-pink-200: #ffabcb;
+  --ds-berry-pink-300: #ff7fb3;
+  --ds-berry-pink-400: #fe4c9b;
+  --ds-berry-pink-500: #e52481;
+  --ds-berry-pink-600: #bf0168;
+  --ds-berry-pink-700: #93004d;
+  --ds-berry-pink-800: #680035;
+  --ds-berry-pink-900: #40001e;
+
   /* Radius scale (lightly rounded for friendlier UI) */
   --ds-radius-xs: 0.125rem;
   --ds-radius-sm: 0.25rem;

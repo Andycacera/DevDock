@@ -8,6 +8,7 @@
 /* Components */
 @import './components/cards.css';
 @import './components/buttons.css';
+@import './components/chips.css';
 
 @theme {
   /* Typography */
@@ -107,6 +108,73 @@
   --color-danger-700: var(--ds-danger-700);
   --color-danger-800: var(--ds-danger-800);
   --color-danger-900: var(--ds-danger-900);
+
+  /* Other colors */
+  /* Aqua Cyan */
+  --color-aqua-cyan-100: var(--ds-aqua-cyan-100);
+  --color-aqua-cyan-200: var(--ds-aqua-cyan-200);
+  --color-aqua-cyan-300: var(--ds-aqua-cyan-300);
+  --color-aqua-cyan-400: var(--ds-aqua-cyan-400);
+  --color-aqua-cyan-500: var(--ds-aqua-cyan-500);
+  --color-aqua-cyan-600: var(--ds-aqua-cyan-600);
+  --color-aqua-cyan-700: var(--ds-aqua-cyan-700);
+  --color-aqua-cyan-800: var(--ds-aqua-cyan-800);
+  --color-aqua-cyan-900: var(--ds-aqua-cyan-900);
+
+  /* Spring Green */
+  --color-spring-green-100: var(--ds-spring-green-100);
+  --color-spring-green-200: var(--ds-spring-green-200);
+  --color-spring-green-300: var(--ds-spring-green-300);
+  --color-spring-green-400: var(--ds-spring-green-400);
+  --color-spring-green-500: var(--ds-spring-green-500);
+  --color-spring-green-600: var(--ds-spring-green-600);
+  --color-spring-green-700: var(--ds-spring-green-700);
+  --color-spring-green-800: var(--ds-spring-green-800);
+  --color-spring-green-900: var(--ds-spring-green-900);
+
+  /* Signal Orange */
+  --color-signal-orange-100: var(--ds-signal-orange-100);
+  --color-signal-orange-200: var(--ds-signal-orange-200);
+  --color-signal-orange-300: var(--ds-signal-orange-300);
+  --color-signal-orange-400: var(--ds-signal-orange-400);
+  --color-signal-orange-500: var(--ds-signal-orange-500);
+  --color-signal-orange-600: var(--ds-signal-orange-600);
+  --color-signal-orange-700: var(--ds-signal-orange-700);
+  --color-signal-orange-800: var(--ds-signal-orange-800);
+  --color-signal-orange-900: var(--ds-signal-orange-900);
+
+  /* Electric Purple */
+  --color-electric-purple-100: var(--ds-electric-purple-100);
+  --color-electric-purple-200: var(--ds-electric-purple-200);
+  --color-electric-purple-300: var(--ds-electric-purple-300);
+  --color-electric-purple-400: var(--ds-electric-purple-400);
+  --color-electric-purple-500: var(--ds-electric-purple-500);
+  --color-electric-purple-600: var(--ds-electric-purple-600);
+  --color-electric-purple-700: var(--ds-electric-purple-700);
+  --color-electric-purple-800: var(--ds-electric-purple-800);
+  --color-electric-purple-900: var(--ds-electric-purple-900);
+
+  /* Vivid Magenta */
+  --color-vivid-magenta-100: var(--ds-vivid-magenta-100);
+  --color-vivid-magenta-200: var(--ds-vivid-magenta-200);
+  --color-vivid-magenta-300: var(--ds-vivid-magenta-300);
+  --color-vivid-magenta-400: var(--ds-vivid-magenta-400);
+  --color-vivid-magenta-500: var(--ds-vivid-magenta-500);
+  --color-vivid-magenta-600: var(--ds-vivid-magenta-600);
+  --color-vivid-magenta-700: var(--ds-vivid-magenta-700);
+  --color-vivid-magenta-800: var(--ds-vivid-magenta-800);
+  --color-vivid-magenta-900: var(--ds-vivid-magenta-900);
+
+  /* Berry Pink */
+  --color-berry-pink-100: var(--ds-berry-pink-100);
+  --color-berry-pink-200: var(--ds-berry-pink-200);
+  --color-berry-pink-300: var(--ds-berry-pink-300);
+  --color-berry-pink-400: var(--ds-berry-pink-400);
+  --color-berry-pink-500: var(--ds-berry-pink-500);
+  --color-berry-pink-600: var(--ds-berry-pink-600);
+  --color-berry-pink-700: var(--ds-berry-pink-700);
+  --color-berry-pink-800: var(--ds-berry-pink-800);
+  --color-berry-pink-900: var(--ds-berry-pink-900);
 
   /* Radius scale (friendly, slightly rounded) */
   --radius-xs: var(--ds-radius-xs);

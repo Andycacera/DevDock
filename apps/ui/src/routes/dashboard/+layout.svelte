@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Header from '$features/dashboard/components/header.svelte'
-  import Sidenav from '$features/dashboard/components/sidenav.svelte'
+  import Header from '$features/dashboard/layout/header.svelte'
+  import Sidenav from '$features/dashboard/layout/sidenav.svelte'
   import { provideDashboardStores } from '$features/dashboard/dashboard-context.svelte'
 
   provideDashboardStores()
@@ -15,7 +15,7 @@
     <!-- SIDENAV -->
     <Sidenav />
     <!-- BODY -->
-    <div class="flex w-full h-full justify-center items-center p-8">
+    <div class="flex w-full h-full justify-center items-center">
       {@render children()}
     </div>
   </div>
