@@ -1,0 +1,91 @@
+[data-sonner-toast] {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 18rem;
+  max-width: 24rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--ds-surface);
+  color: var(--ds-foreground);
+  border: 2px solid var(--ds-border-muted);
+  border-left-width: 4px;
+  border-radius: var(--ds-radius-md);
+  box-shadow: var(--ds-shadow-lg);
+  font-size: 0.875rem;
+}
+
+[data-sonner-toast][data-type='success'] {
+  border-left-color: var(--ds-success);
+}
+
+[data-sonner-toast][data-type='error'] {
+  border-left-color: var(--ds-danger);
+}
+
+[data-sonner-toast][data-type='warning'] {
+  border-left-color: var(--ds-warning);
+}
+
+[data-sonner-toast][data-type='info'] {
+  border-left-color: var(--ds-aqua-cyan-400);
+}
+
+[data-sonner-toast][data-type='loading'] {
+  border-left-color: var(--ds-primary-400);
+}
+
+[data-sonner-toast] [data-content] {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+[data-sonner-toast] [data-title] {
+  font-weight: 600;
+}
+
+[data-sonner-toast] [data-description] {
+  font-size: 0.8125rem;
+  color: var(--ds-muted);
+}
+
+[data-sonner-toast] [data-close-button] {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  color: var(--ds-muted);
+  cursor: pointer;
+}
+
+/* Icon slot: keeps the loader (and any icon) in place instead of overlapping the text.
+   sonner positions `.sonner-loader` absolutely, which escapes when the slot has no
+   size/position of its own. */
+[data-sonner-toast] [data-icon] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+}
+
+[data-sonner-toast] .sonner-loader {
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-sonner-toast] .sonner-loader[data-visible='false'] {
+  display: none;
+}
+
+/* Neutralize the caller's offset inside the icon slot. */
+[data-sonner-toast] [data-icon] .sonner-loader > div {
+  margin-left: 0;
+}

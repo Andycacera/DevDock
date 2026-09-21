@@ -1,0 +1,20 @@
+[data-popover-content] {
+  z-index: 50;
+  min-width: 16rem;
+  padding: 1rem;
+  background-color: var(--ds-surface);
+  color: var(--ds-foreground);
+  border: 2px solid var(--ds-border-muted);
+  border-radius: var(--ds-radius-lg);
+  box-shadow: var(--ds-shadow-lg);
+  transform-origin: var(--bits-popover-content-transform-origin);
+  transition:
+    opacity 150ms var(--material-anim),
+    transform 150ms var(--material-anim);
+}
+
+[data-popover-content][data-starting-style],
+[data-popover-content][data-ending-style] {
+  opacity: 0;
+  transform: scale(0.96);
+}

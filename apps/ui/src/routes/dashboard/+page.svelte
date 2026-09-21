@@ -14,7 +14,7 @@
   })
 </script>
 
-<div class="flex flex-col gap-8 w-full h-full">
+<div class="flex flex-col w-full h-full">
   <StatsRow />
 
   <!-- DOM order is unassigned -> routes so `md` matches the reference. On `lg+`

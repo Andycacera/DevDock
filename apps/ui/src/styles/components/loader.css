@@ -1,0 +1,35 @@
+.loader {
+  --color: var(--ds-ldr-color, var(--ds-primary-500));
+  --width: var(--ds-ldr-width);
+  --duration: var(--ds-ldr-duration, 800ms);
+
+  width: var(--width);
+  height: var(--width);
+  aspect-ratio: 1;
+  padding: calc(var(--width) * 0.175);
+  border-radius: calc(var(--width) * 0.25);
+  box-sizing: border-box;
+  position: relative;
+  mask:
+    conic-gradient(#000 0 0) content-box exclude,
+    conic-gradient(#000 0 0);
+  filter: blur(calc(var(--width) * 0.15));
+  animation: l4-0 var(--duration) linear infinite alternate;
+}
+.loader:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-conic-gradient(#0000 0 5%, var(--color), #0000 20% 50%);
+  animation: l4-1 var(--duration) linear infinite;
+}
+@keyframes l4-0 {
+  to {
+    border-radius: 50%;
+  }
+}
+@keyframes l4-1 {
+  to {
+    rotate: 0.5turn;
+  }
+}

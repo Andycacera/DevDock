@@ -1,4 +1,5 @@
 import type { DetectedService } from '@devdock/core';
+import { SvelteDate } from 'svelte/reactivity';
 import { devdockApi } from '$lib/services/devdock-api';
 import { toUiError, type UiError } from '$lib/services/errors';
 
@@ -24,7 +25,7 @@ export function createServicesStore(): ServicesState {
 
     try {
       items = await devdockApi.scanPorts();
-      lastScanAt = new Date().toISOString();
+      lastScanAt = new SvelteDate().toISOString();
     } catch (cause) {
       error = toUiError(cause);
       console.error('[dashboard] scan failed', error);

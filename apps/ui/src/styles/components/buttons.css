@@ -11,8 +11,24 @@
 
   &[data-sc] {
     /* Secondary */
-
     background-color: var(--ds-secondary);
+    color: var(--ds-foreground);
+  }
+
+  &[data-success] {
+    background-color: var(--ds-success-600);
+    color: var(--ds-foreground);
+  }
+  &[data-warning] {
+    background-color: var(--ds-warning-600);
+    color: var(--ds-foreground);
+  }
+  &[data-danger] {
+    background-color: var(--ds-danger-600);
+    color: var(--ds-foreground);
+  }
+  &[data-info] {
+    background-color: var(--ds-aqua-cyan-600);
     color: var(--ds-foreground);
   }
 

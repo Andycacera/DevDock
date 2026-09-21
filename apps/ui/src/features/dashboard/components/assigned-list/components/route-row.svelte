@@ -1,7 +1,7 @@
 <script lang="ts">
   import Icon from '@iconify/svelte'
   import type { RouteMapping } from '@devdock/core'
-  import { UiStatusPill } from '$lib'
+  import { UiStatusPill, UiTooltip } from '$lib'
 
   let { route }: { route: RouteMapping } = $props()
 
@@ -28,12 +28,27 @@
   </div>
 
   <div class="flex items-center gap-1 pr-4 ml-auto z-1">
-    <button type="button" data-btn data-base class="p-2" aria-label="Open route">
-      <Icon icon="material-symbols:open-in-new-rounded" class="text-2xl" />
-    </button>
+    <UiTooltip content="Open in browser">
+      {#snippet trigger()}
+        <button type="button" data-btn data-base data-bg-pr class="p-3" aria-label="Open route">
+          <Icon icon="material-symbols:open-in-new-rounded" class="text-xl" />
+        </button>
+      {/snippet}
+    </UiTooltip>
 
-    <button type="button" data-btn data-base class="p-2" aria-label="Delete route">
-      <Icon icon="material-symbols:delete-rounded" class="text-2xl text-danger" />
-    </button>
+    <UiTooltip content="Delete route">
+      {#snippet trigger()}
+        <button
+          type="button"
+          data-btn
+          data-base
+          data-bg-danger
+          class="p-3"
+          aria-label="Delete route"
+        >
+          <Icon icon="material-symbols:delete-rounded" class="text-xl text-danger" />
+        </button>
+      {/snippet}
+    </UiTooltip>
   </div>
 </div>

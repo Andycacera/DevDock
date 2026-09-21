@@ -1,0 +1,86 @@
+[data-dialog-overlay] {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: color-mix(in oklab, var(--ds-background) 70%, transparent);
+  transition: opacity 150ms var(--material-anim);
+}
+
+[data-dialog-overlay][data-starting-style],
+[data-dialog-overlay][data-ending-style] {
+  opacity: 0;
+}
+
+[data-dialog-content] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  width: calc(100% - 2rem);
+  max-width: 28rem;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background-color: var(--ds-surface);
+  border: 2px solid var(--ds-border-muted);
+  border-radius: var(--ds-radius-lg);
+  box-shadow: var(--ds-shadow-xl);
+  transition:
+    opacity 150ms var(--material-anim),
+    transform 150ms var(--material-anim);
+}
+
+[data-dialog-content][data-size='sm'] {
+  max-width: 22rem;
+}
+
+[data-dialog-content][data-size='lg'] {
+  max-width: 42rem;
+}
+
+[data-dialog-content][data-starting-style],
+[data-dialog-content][data-ending-style] {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+[data-dialog-title] {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+[data-dialog-description] {
+  font-size: 0.875rem;
+  color: var(--ds-muted);
+}
+
+[data-dialog-body] {
+  font-size: 0.875rem;
+}
+
+[data-dialog-actions] {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+[data-dialog-close] {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-muted);
+  cursor: pointer;
+}
+
+[data-dialog-close]:hover {
+  color: var(--ds-foreground);
+  background-color: var(--ds-surface-2);
+}

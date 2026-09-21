@@ -1,2 +1,8 @@
 export * from './forms'
 export { default as UiStatusPill } from './status-pill.svelte'
+export { default as UiTooltip } from './tooltip.svelte'
+export { default as UiDialog } from './dialog.svelte'
+export { default as UiDialogHost } from './dialog-host.svelte'
+export { default as UiPopover } from './popover.svelte'
+export { default as UiToaster } from './toaster.svelte'
+export { default as UiLoader } from './loader.svelte'
