@@ -1,5 +1,10 @@
 <script lang="ts">
-  import { DIALOG_BUTTON_ATTRS, dialogStore, resolveDialog } from '$lib/stores/dialogs.svelte'
+  import {
+    DIALOG_BUTTON_ATTRS,
+    clearDialog,
+    dialogStore,
+    resolveDialog
+  } from '$lib/stores/dialogs.svelte'
   import UiDialog from './dialog.svelte'
 
   const request = $derived(dialogStore.request)
@@ -20,44 +25,43 @@
   const cancelClass = $derived(
     request && request.kind === 'confirm' ? (request.options.cancelClass ?? '') : ''
   )
-
-  const open = $derived(request !== null)
 </script>
 
-{#if request}
-  <UiDialog
-    {open}
-    {title}
-    {description}
-    closeOnOutsideClick={false}
-    showClose={false}
-    size="sm"
-    onOpenChange={value => {
-      if (!value) resolveDialog(false)
-    }}
-  >
-    {#snippet actions()}
-      {#if isConfirm}
-        <button
-          type="button"
-          data-btn
-          {...DIALOG_BUTTON_ATTRS[cancelType]}
-          class="px-4 py-2 {cancelClass}"
-          onclick={() => resolveDialog(false)}
-        >
-          {cancelText}
-        </button>
-      {/if}
-
+<UiDialog
+  open={dialogStore.open}
+  {title}
+  {description}
+  closeOnOutsideClick={false}
+  showClose={false}
+  size="sm"
+  onOpenChange={value => {
+    if (!value) resolveDialog(false)
+  }}
+  onOpenChangeComplete={value => {
+    if (!value) clearDialog()
+  }}
+>
+  {#snippet actions()}
+    {#if isConfirm}
       <button
         type="button"
         data-btn
-        {...DIALOG_BUTTON_ATTRS[confirmType]}
-        class="px-4 py-2 {confirmClass}"
-        onclick={() => resolveDialog(true)}
+        {...DIALOG_BUTTON_ATTRS[cancelType]}
+        class="px-4 py-2 {cancelClass}"
+        onclick={() => resolveDialog(false)}
       >
-        {confirmText}
+        {cancelText}
       </button>
-    {/snippet}
-  </UiDialog>
-{/if}
+    {/if}
+
+    <button
+      type="button"
+      data-btn
+      {...DIALOG_BUTTON_ATTRS[confirmType]}
+      class="px-4 py-2 {confirmClass}"
+      onclick={() => resolveDialog(true)}
+    >
+      {confirmText}
+    </button>
+  {/snippet}
+</UiDialog>

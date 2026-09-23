@@ -55,6 +55,7 @@ UI-scoped notes live next to the code they describe:
 |-----|--------|
 | [apps/ui/docs/adapters-environment.md](../../apps/ui/docs/adapters-environment.md) | Adapter environment detection pattern |
 | [apps/ui/docs/state-management.md](../../apps/ui/docs/state-management.md) | Store scopes and state management rules |
+| [apps/ui/docs/design-system/](../../apps/ui/docs/design-system/README.md) | Component APIs (toast, tooltip, dialog, popover) |
 
 ## Status
 

@@ -15,7 +15,8 @@
     showClose = true,
     size = 'md',
     class: className = '',
-    onOpenChange
+    onOpenChange,
+    onOpenChangeComplete
   }: {
     open?: boolean
     trigger?: Snippet
@@ -29,10 +30,11 @@
     size?: 'sm' | 'md' | 'lg'
     class?: string
     onOpenChange?: (open: boolean) => void
+    onOpenChangeComplete?: (open: boolean) => void
   } = $props()
 </script>
 
-<Dialog.Root bind:open {onOpenChange}>
+<Dialog.Root bind:open {onOpenChange} {onOpenChangeComplete}>
   {#if trigger}
     <Dialog.Trigger>
       {@render trigger()}

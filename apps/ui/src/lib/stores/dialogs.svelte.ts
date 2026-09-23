@@ -42,32 +42,46 @@ export const DIALOG_BUTTON_ATTRS: Record<DialogButtonType, Record<string, string
   info: { 'data-info': '' }
 };
 
+/**
+ * `request` keeps the dialog data (title, buttons) while `open` drives visibility.
+ * They are separate so the content survives the close animation: the request is only
+ * cleared once the exit transition finishes.
+ */
 let request = $state<DialogRequest | null>(null);
+let open = $state(false);
 
 export const dialogStore = {
   get request() {
     return request;
+  },
+  get open() {
+    return open;
   }
 };
+
+function openDialog(next: DialogRequest): void {
+  request = next;
+  open = true;
+}
 
 /** Opens a confirm dialog and resolves with the user's choice. */
 export function confirmDialog(options: ConfirmDialogOptions): Promise<boolean> {
   return new Promise((resolve) => {
-    request = { kind: 'confirm', options, resolve };
+    openDialog({ kind: 'confirm', options, resolve });
   });
 }
 
 /** Opens an alert dialog with a single confirm button. */
 export function alertDialog(options: AlertDialogOptions): Promise<boolean> {
   return new Promise((resolve) => {
-    request = { kind: 'alert', options, resolve };
+    openDialog({ kind: 'alert', options, resolve });
   });
 }
 
 /** Closes the active dialog, runs its callbacks, and resolves its promise. */
 export function resolveDialog(result: boolean): void {
   const current = request;
-  if (!current) return;
+  if (!current || !open) return;
 
   if (result) {
     current.options.onConfirm?.();
@@ -76,5 +90,12 @@ export function resolveDialog(result: boolean): void {
   }
 
   current.resolve(result);
-  request = null;
+  open = false;
+}
+
+/** Clears the request data. Called once the close animation has finished. */
+export function clearDialog(): void {
+  if (!open) {
+    request = null;
+  }
 }
