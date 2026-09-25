@@ -1,14 +1,14 @@
-import { getContext, setContext } from 'svelte';
-import { createRoutesStore, type RoutesState } from './stores/routes.svelte';
-import { createServicesStore, type ServicesState } from './stores/services.svelte';
-import { createSidenavStore, type SidenavState } from './stores/sidenav.svelte';
+import { getContext, setContext } from 'svelte'
+import { createRoutesStore, type RoutesState } from './stores/routes.svelte'
+import { createServicesStore, type ServicesState } from './stores/services.svelte'
+import { createSidenavStore, type SidenavState } from './stores/sidenav.svelte'
 
-const DASHBOARD_KEY = Symbol('dashboard-stores');
+const DASHBOARD_KEY = Symbol('dashboard-stores')
 
 export interface DashboardStores {
-  sidenav: SidenavState;
-  services: ServicesState;
-  routes: RoutesState;
+  sidenav: SidenavState
+  services: ServicesState
+  routes: RoutesState
 }
 
 /** Creates the dashboard stores and exposes them to the feature subtree. */
@@ -17,32 +17,32 @@ export function provideDashboardStores(): DashboardStores {
     sidenav: createSidenavStore(),
     services: createServicesStore(),
     routes: createRoutesStore()
-  };
+  }
 
-  setContext(DASHBOARD_KEY, stores);
-  return stores;
+  setContext(DASHBOARD_KEY, stores)
+  return stores
 }
 
 function useDashboardStores(): DashboardStores {
-  const stores = getContext<DashboardStores | undefined>(DASHBOARD_KEY);
+  const stores = getContext<DashboardStores | undefined>(DASHBOARD_KEY)
 
   if (!stores) {
     throw new Error(
       'Dashboard stores are not available. Render this component inside the dashboard provider.'
-    );
+    )
   }
 
-  return stores;
+  return stores
 }
 
 export function useSidenavStore(): SidenavState {
-  return useDashboardStores().sidenav;
+  return useDashboardStores().sidenav
 }
 
 export function useServicesStore(): ServicesState {
-  return useDashboardStores().services;
+  return useDashboardStores().services
 }
 
 export function useRoutesStore(): RoutesState {
-  return useDashboardStores().routes;
+  return useDashboardStores().routes
 }

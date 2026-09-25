@@ -11,33 +11,33 @@
 
 ```svelte
 <script lang="ts">
-  import { UiDialog, confirmDialog, alertDialog } from '$lib';
+  import { UiDialog, confirmDialog, alertDialog } from '$lib'
 </script>
 ```
 
 ## `UiDialog` props
 
-| Prop | Type | Default | Notes |
-|------|------|---------|-------|
-| `open` | `boolean` (bindable) | `false` | |
-| `trigger` | `Snippet` | — | Optional trigger element |
-| `title` | `string` | — | Required (accessible name) |
-| `description` | `string` | — | Optional |
-| `children` | `Snippet` | — | Dialog body |
-| `actions` | `Snippet` | — | Footer buttons |
-| `closeOnOutsideClick` | `boolean` | `true` | |
-| `closeOnEscape` | `boolean` | `true` | |
-| `showClose` | `boolean` | `true` | Renders the X button |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | |
-| `class` | `string` | — | Applied to the content |
-| `onOpenChange` | `(open: boolean) => void` | — | |
-| `onOpenChangeComplete` | `(open: boolean) => void` | — | Fires after the transition |
+| Prop                   | Type                      | Default | Notes                      |
+| ---------------------- | ------------------------- | ------- | -------------------------- |
+| `open`                 | `boolean` (bindable)      | `false` |                            |
+| `trigger`              | `Snippet`                 | —       | Optional trigger element   |
+| `title`                | `string`                  | —       | Required (accessible name) |
+| `description`          | `string`                  | —       | Optional                   |
+| `children`             | `Snippet`                 | —       | Dialog body                |
+| `actions`              | `Snippet`                 | —       | Footer buttons             |
+| `closeOnOutsideClick`  | `boolean`                 | `true`  |                            |
+| `closeOnEscape`        | `boolean`                 | `true`  |                            |
+| `showClose`            | `boolean`                 | `true`  | Renders the X button       |
+| `size`                 | `'sm' \| 'md' \| 'lg'`    | `'md'`  |                            |
+| `class`                | `string`                  | —       | Applied to the content     |
+| `onOpenChange`         | `(open: boolean) => void` | —       |                            |
+| `onOpenChangeComplete` | `(open: boolean) => void` | —       | Fires after the transition |
 
 ### Declarative example
 
 ```svelte
 <script lang="ts">
-  let open = $state(false);
+  let open = $state(false)
 </script>
 
 <button data-btn data-pr class="px-4 py-2" onclick={() => (open = true)}>New route</button>
@@ -67,9 +67,9 @@ const ok = await confirmDialog({
   cancelClass: '',
   onConfirm: () => {},
   onCancel: () => {}
-});
+})
 
-if (ok) notify.success('Route deleted');
+if (ok) notify.success('Route deleted')
 ```
 
 ```ts
@@ -79,32 +79,32 @@ await alertDialog({
   confirmText: 'OK',
   confirmType: 'info',
   confirmClass: ''
-});
+})
 ```
 
 ### Options
 
-| Option | Type | Applies to |
-|--------|------|------------|
-| `title` | `string` | both |
-| `description` | `string?` | both |
-| `confirmText` / `confirmType` / `confirmClass` | `string?` / `DialogButtonType?` / `string?` | both |
-| `cancelText` / `cancelType` / `cancelClass` | `string?` / `DialogButtonType?` / `string?` | `confirmDialog` only |
-| `onConfirm` | `() => void` | both |
-| `onCancel` | `() => void` | `confirmDialog` only |
+| Option                                         | Type                                        | Applies to           |
+| ---------------------------------------------- | ------------------------------------------- | -------------------- |
+| `title`                                        | `string`                                    | both                 |
+| `description`                                  | `string?`                                   | both                 |
+| `confirmText` / `confirmType` / `confirmClass` | `string?` / `DialogButtonType?` / `string?` | both                 |
+| `cancelText` / `cancelType` / `cancelClass`    | `string?` / `DialogButtonType?` / `string?` | `confirmDialog` only |
+| `onConfirm`                                    | `() => void`                                | both                 |
+| `onCancel`                                     | `() => void`                                | `confirmDialog` only |
 
 ### Button types
 
 `DialogButtonType` maps to the design-system button attribute:
 
-| Type | Attribute |
-|------|-----------|
-| `primary` | `data-pr` |
-| `secondary` | `data-sc` |
-| `success` | `data-success` |
-| `warning` | `data-warning` |
-| `danger` | `data-danger` |
-| `info` | `data-info` |
+| Type        | Attribute      |
+| ----------- | -------------- |
+| `primary`   | `data-pr`      |
+| `secondary` | `data-sc`      |
+| `success`   | `data-success` |
+| `warning`   | `data-warning` |
+| `danger`    | `data-danger`  |
+| `info`      | `data-info`    |
 
 ## Styling
 

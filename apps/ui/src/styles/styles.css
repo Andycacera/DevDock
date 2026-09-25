@@ -4,6 +4,7 @@
 
 @import './base.css';
 @import './forms.css';
+@import './skeleton.css';
 
 /* Components */
 @import './components/cards.css';

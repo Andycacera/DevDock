@@ -1,5 +1,5 @@
-import { dev } from '$app/environment';
-import { error } from '@sveltejs/kit';
+import { dev } from '$app/environment'
+import { error } from '@sveltejs/kit'
 
 /**
  * Development-only route.
@@ -9,6 +9,6 @@ import { error } from '@sveltejs/kit';
  */
 export function load() {
   if (!dev) {
-    error(404, 'Not found');
+    error(404, 'Not found')
   }
 }

@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import type { DevDockBridge } from '@devdock/shared';
-import { createElectronAdapter } from './electron-adapter';
+import { describe, expect, it } from 'vitest'
+import type { DevDockBridge } from '@devdock/shared'
+import { createElectronAdapter } from './electron-adapter'
 
 const fakeBridge: DevDockBridge = {
   scanPorts: async () => ({
@@ -20,7 +20,7 @@ const fakeBridge: DevDockBridge = {
     errors: []
   }),
   getRoutes: async () => ({ routes: [] }),
-  createRoute: async (input) => ({
+  createRoute: async input => ({
     id: 'route-1',
     domain: input.domain,
     targetHost: input.targetHost,
@@ -47,18 +47,18 @@ const fakeBridge: DevDockBridge = {
   getProxyStatus: async () => ({ backend: 'caddy', running: true }),
   reloadProxy: async () => ({ backend: 'caddy', running: true }),
   openRoute: async () => undefined
-};
+}
 
 describe('createElectronAdapter', () => {
   it('delegates scanPorts and maps the DTO', async () => {
-    const adapter = createElectronAdapter(fakeBridge);
-    const services = await adapter.scanPorts();
-    expect(services[0]?.port).toBe(4200);
-  });
+    const adapter = createElectronAdapter(fakeBridge)
+    const services = await adapter.scanPorts()
+    expect(services[0]?.port).toBe(4200)
+  })
 
   it('delegates getProxyStatus', async () => {
-    const adapter = createElectronAdapter(fakeBridge);
-    const status = await adapter.getProxyStatus();
-    expect(status.backend).toBe('caddy');
-  });
-});
+    const adapter = createElectronAdapter(fakeBridge)
+    const status = await adapter.getProxyStatus()
+    expect(status.backend).toBe('caddy')
+  })
+})

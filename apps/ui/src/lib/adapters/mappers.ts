@@ -1,5 +1,5 @@
-import type { DetectedService, ProxyStatus, RouteMapping } from '@devdock/core';
-import type { DetectedServiceDto, ProxyStatusDto, RouteDto } from '@devdock/shared';
+import type { DetectedService, ProxyStatus, RouteMapping } from '@devdock/core'
+import type { DetectedServiceDto, ProxyStatusDto, RouteDto } from '@devdock/shared'
 
 /**
  * Translates transport DTOs into domain types.
@@ -8,13 +8,13 @@ import type { DetectedServiceDto, ProxyStatusDto, RouteDto } from '@devdock/shar
  * changes and normalizes every adapter response.
  */
 export function toDetectedService(dto: DetectedServiceDto): DetectedService {
-  return { ...dto };
+  return { ...dto }
 }
 
 export function toRouteMapping(dto: RouteDto): RouteMapping {
-  return { ...dto };
+  return { ...dto }
 }
 
 export function toProxyStatus(dto: ProxyStatusDto): ProxyStatus {
-  return { ...dto };
+  return { ...dto }
 }

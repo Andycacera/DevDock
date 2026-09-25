@@ -6,12 +6,12 @@
 
 ## What lives here
 
-| Doc | Component |
-|-----|-----------|
-| [toast.md](./toast.md) | `notify` + `UiToaster` |
-| [tooltip.md](./tooltip.md) | `UiTooltip` |
-| [dialog.md](./dialog.md) | `UiDialog`, `confirmDialog`, `alertDialog` |
-| [popover.md](./popover.md) | `UiPopover` |
+| Doc                        | Component                                  |
+| -------------------------- | ------------------------------------------ |
+| [toast.md](./toast.md)     | `notify` + `UiToaster`                     |
+| [tooltip.md](./tooltip.md) | `UiTooltip`                                |
+| [dialog.md](./dialog.md)   | `UiDialog`, `confirmDialog`, `alertDialog` |
+| [popover.md](./popover.md) | `UiPopover`                                |
 
 Other building blocks are documented by their styles and the showcase:
 

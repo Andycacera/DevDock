@@ -9,30 +9,30 @@
 `UiToaster` is mounted once in the root layout. Then call `notify` from anywhere.
 
 ```ts
-import { notify } from '$lib';
+import { notify } from '$lib'
 ```
 
 ## API
 
-| Method | Description |
-|--------|-------------|
-| `notify.success(message, options?)` | Success toast |
-| `notify.error(message, options?)` | Error toast |
-| `notify.warning(message, options?)` | Warning toast |
-| `notify.info(message, options?)` | Info toast |
-| `notify.loading(message, options?)` | Loading toast (persistent until updated/dismissed) |
-| `notify.promise(promise, { loading, success, error })` | Tracks a promise through its states |
-| `notify.dismiss(id?)` | Dismiss one toast (by id) or all |
-| `notify.custom(component)` | Render a custom Svelte component as a toast |
+| Method                                                 | Description                                        |
+| ------------------------------------------------------ | -------------------------------------------------- |
+| `notify.success(message, options?)`                    | Success toast                                      |
+| `notify.error(message, options?)`                      | Error toast                                        |
+| `notify.warning(message, options?)`                    | Warning toast                                      |
+| `notify.info(message, options?)`                       | Info toast                                         |
+| `notify.loading(message, options?)`                    | Loading toast (persistent until updated/dismissed) |
+| `notify.promise(promise, { loading, success, error })` | Tracks a promise through its states                |
+| `notify.dismiss(id?)`                                  | Dismiss one toast (by id) or all                   |
+| `notify.custom(component)`                             | Render a custom Svelte component as a toast        |
 
 `options`: `description?`, `duration?`, `action?: { label, onClick }`, `id?`.
 
 ## Examples
 
 ```ts
-notify.success('Route applied');
-notify.error('Proxy reload failed', { description: 'Caddy returned exit code 1' });
-notify.loading('Scanning ports…');
+notify.success('Route applied')
+notify.error('Proxy reload failed', { description: 'Caddy returned exit code 1' })
+notify.loading('Scanning ports…')
 ```
 
 Promise:
@@ -41,8 +41,8 @@ Promise:
 notify.promise(saveConfig(), {
   loading: 'Applying config…',
   success: 'Config applied',
-  error: (err) => `Apply failed: ${err}`
-});
+  error: err => `Apply failed: ${err}`
+})
 ```
 
 Action + manual dismissal:
@@ -50,9 +50,9 @@ Action + manual dismissal:
 ```ts
 const id = notify.success('Route deleted', {
   action: { label: 'Undo', onClick: () => restoreRoute() }
-});
+})
 
-notify.dismiss(id);
+notify.dismiss(id)
 ```
 
 ## Types and icons

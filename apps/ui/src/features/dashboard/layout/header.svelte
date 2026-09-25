@@ -14,7 +14,13 @@
   </div>
   <div class="w-px h-full mx-4 rounded-full bg-border-muted"></div>
   <!-- HEADER ACTIONS -->
-  <button data-btn data-pr class="flex items-center gap-2 px-3 py-2">
+  <button
+    data-btn
+    data-base
+    data-outline
+    data-bg-pr
+    class="flex items-center gap-2 px-3 py-2 hover:border-primary-400/20!"
+  >
     <Icon icon="material-symbols:alt-route-rounded" class="text-xl leading-none" />
     <span class="font-jb-sans text-sm uppercase font-semibold"> New route </span>
   </button>

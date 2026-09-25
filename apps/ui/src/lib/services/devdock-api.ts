@@ -1,5 +1,5 @@
-import type { NewRoute, RouteMapping } from '@devdock/core';
-import { getAdapter } from './adapter-registry';
+import type { NewRoute, RouteMapping } from '@devdock/core'
+import { getAdapter } from './adapter-registry'
 
 /**
  * Single entry point for the UI.
@@ -15,4 +15,4 @@ export const devdockApi = {
   getProxyStatus: () => getAdapter().getProxyStatus(),
   reloadProxy: () => getAdapter().reloadProxy(),
   openRoute: (id: string) => getAdapter().openRoute(id)
-};
+}

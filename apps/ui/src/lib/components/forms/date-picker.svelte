@@ -108,8 +108,8 @@
                             : undefined}
                           class="relative text-sm data-today:underline"
                         >
-                            {date.day}
-                            </DatePicker.Day>
+                          {date.day}
+                        </DatePicker.Day>
                       </DatePicker.Cell>
                     {/each}
                   </DatePicker.GridRow>

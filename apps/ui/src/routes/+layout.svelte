@@ -14,7 +14,7 @@
 </svelte:head>
 
 <Tooltip.Provider>
-  <div class="flex flex-col w-full h-full justify-center items-center">
+  <div class="flex flex-col w-full h-full justify-center items-center overflow-hidden">
     {@render children()}
   </div>
   <UiToaster />

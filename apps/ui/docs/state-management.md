@@ -18,12 +18,12 @@ explicit, so the app stays testable and scalable.
 
 Pick the **narrowest** scope that works. From widest to narrowest:
 
-| Scope | Use when | Mechanism | Location |
-|-------|----------|-----------|----------|
-| Global | App-wide state, exactly one instance | Module singleton | `src/lib/stores/` |
-| Domain | Several features share state or a workflow | Scope factory + Context | `src/domains/<domain>/` |
-| Feature | State belongs to one feature and must not leak | Factory + Context (provide/use) | `src/features/<feature>/` |
-| Component | One component needs complex, testable state | Local `$state`; private factory instance | the component file |
+| Scope     | Use when                                       | Mechanism                                | Location                  |
+| --------- | ---------------------------------------------- | ---------------------------------------- | ------------------------- |
+| Global    | App-wide state, exactly one instance           | Module singleton                         | `src/lib/stores/`         |
+| Domain    | Several features share state or a workflow     | Scope factory + Context                  | `src/domains/<domain>/`   |
+| Feature   | State belongs to one feature and must not leak | Factory + Context (provide/use)          | `src/features/<feature>/` |
+| Component | One component needs complex, testable state    | Local `$state`; private factory instance | the component file        |
 
 Terminology: a **store** is the file/container (`stores/*.svelte.ts`); a **state** is the model/interface a store exposes (`XState`).
 
@@ -35,8 +35,8 @@ Prefer local runes. Do not create a store just because a value is reactive.
 
 ```svelte
 <script lang="ts">
-  let open = $state(false);
-  const label = $derived(open ? 'Close' : 'Open');
+  let open = $state(false)
+  const label = $derived(open ? 'Close' : 'Open')
 </script>
 ```
 
@@ -47,8 +47,8 @@ not export the instance:
 
 ```svelte
 <script lang="ts">
-  import { createFiltersStore } from './filters-store.svelte';
-  const filters = createFiltersStore();
+  import { createFiltersStore } from './filters-store.svelte'
+  const filters = createFiltersStore()
 </script>
 ```
 
@@ -65,54 +65,54 @@ feature subtree can reach it.
 
 ```ts
 // features/dashboard/stores/services.svelte.ts
-import type { DetectedService } from '@devdock/core';
-import { devdockApi } from '$lib/services/devdock-api';
-import { toUiError, type UiError } from '$lib/services/errors';
+import type { DetectedService } from '@devdock/core'
+import { devdockApi } from '$lib/services/devdock-api'
+import { toUiError, type UiError } from '$lib/services/errors'
 
 /** Model (state) exposed by the services store. */
 export interface ServicesState {
-  readonly items: DetectedService[];
-  readonly loading: boolean;
-  readonly error: UiError | null;
-  readonly lastScanAt: string | null;
-  refresh(): Promise<void>;
+  readonly items: DetectedService[]
+  readonly loading: boolean
+  readonly error: UiError | null
+  readonly lastScanAt: string | null
+  refresh(): Promise<void>
 }
 
 export function createServicesStore(): ServicesState {
-  let items = $state<DetectedService[]>([]);
-  let loading = $state(false);
-  let error = $state<UiError | null>(null);
-  let lastScanAt = $state<string | null>(null);
+  let items = $state<DetectedService[]>([])
+  let loading = $state(false)
+  let error = $state<UiError | null>(null)
+  let lastScanAt = $state<string | null>(null)
 
   async function refresh() {
-    loading = true;
-    error = null;
+    loading = true
+    error = null
     try {
-      items = await devdockApi.scanPorts();
-      lastScanAt = new Date().toISOString();
+      items = await devdockApi.scanPorts()
+      lastScanAt = new Date().toISOString()
     } catch (cause) {
-      error = toUiError(cause);
-      console.error(error);
+      error = toUiError(cause)
+      console.error(error)
     } finally {
-      loading = false;
+      loading = false
     }
   }
 
   return {
     get items() {
-      return items;
+      return items
     },
     get loading() {
-      return loading;
+      return loading
     },
     get error() {
-      return error;
+      return error
     },
     get lastScanAt() {
-      return lastScanAt;
+      return lastScanAt
     },
     refresh
-  };
+  }
 }
 ```
 
@@ -127,17 +127,17 @@ Rules:
 
 ```ts
 // features/dashboard/dashboard-context.svelte.ts
-import { getContext, setContext } from 'svelte';
-import { createSidenavStore, type SidenavState } from './stores/sidenav.svelte';
-import { createServicesStore, type ServicesState } from './stores/services.svelte';
-import { createRoutesStore, type RoutesState } from './stores/routes.svelte';
+import { getContext, setContext } from 'svelte'
+import { createSidenavStore, type SidenavState } from './stores/sidenav.svelte'
+import { createServicesStore, type ServicesState } from './stores/services.svelte'
+import { createRoutesStore, type RoutesState } from './stores/routes.svelte'
 
-const DASHBOARD_KEY = Symbol('dashboard-stores');
+const DASHBOARD_KEY = Symbol('dashboard-stores')
 
 export interface DashboardStores {
-  sidenav: SidenavState;
-  services: ServicesState;
-  routes: RoutesState;
+  sidenav: SidenavState
+  services: ServicesState
+  routes: RoutesState
 }
 
 export function provideDashboardStores(): DashboardStores {
@@ -145,31 +145,31 @@ export function provideDashboardStores(): DashboardStores {
     sidenav: createSidenavStore(),
     services: createServicesStore(),
     routes: createRoutesStore()
-  };
-  setContext(DASHBOARD_KEY, stores);
-  return stores;
+  }
+  setContext(DASHBOARD_KEY, stores)
+  return stores
 }
 
 function useDashboardStores(): DashboardStores {
-  const stores = getContext<DashboardStores | undefined>(DASHBOARD_KEY);
+  const stores = getContext<DashboardStores | undefined>(DASHBOARD_KEY)
   if (!stores) {
     throw new Error(
       'Dashboard stores are not available. Render this component inside the dashboard provider.'
-    );
+    )
   }
-  return stores;
+  return stores
 }
 
 export function useSidenavStore(): SidenavState {
-  return useDashboardStores().sidenav;
+  return useDashboardStores().sidenav
 }
 
 export function useServicesStore(): ServicesState {
-  return useDashboardStores().services;
+  return useDashboardStores().services
 }
 
 export function useRoutesStore(): RoutesState {
-  return useDashboardStores().routes;
+  return useDashboardStores().routes
 }
 ```
 
@@ -187,8 +187,8 @@ The feature root provides:
 ```svelte
 <!-- routes/dashboard/+layout.svelte -->
 <script lang="ts">
-  import { provideDashboardStores } from '$features/dashboard/dashboard-context.svelte';
-  provideDashboardStores();
+  import { provideDashboardStores } from '$features/dashboard/dashboard-context.svelte'
+  provideDashboardStores()
 </script>
 ```
 
@@ -196,8 +196,8 @@ Descendants consume:
 
 ```svelte
 <script lang="ts">
-  import { useServicesStore } from '$features/dashboard/dashboard-context.svelte';
-  const services = useServicesStore();
+  import { useServicesStore } from '$features/dashboard/dashboard-context.svelte'
+  const services = useServicesStore()
 </script>
 
 <span>{services.items.length}</span>
@@ -211,8 +211,10 @@ Use only for state that is conceptually global: theme, notifications/toasts, app
 
 ```ts
 // lib/stores/notifications.svelte.ts
-export function createNotificationsStore() { /* ... */ }
-export const notificationsStore = createNotificationsStore();
+export function createNotificationsStore() {
+  /* ... */
+}
+export const notificationsStore = createNotificationsStore()
 ```
 
 Rules:
@@ -232,11 +234,11 @@ scope above them.
 ```ts
 // domains/checkout/checkout-scope.svelte.ts
 export function createCheckoutScope() {
-  const cart = createCartStore();
-  const shipping = createShippingStore();
-  const payment = createPaymentStore({ cart });
-  const orchestrator = createCheckoutOrchestrator({ cart, shipping, payment });
-  return { cart, shipping, payment, orchestrator };
+  const cart = createCartStore()
+  const shipping = createShippingStore()
+  const payment = createPaymentStore({ cart })
+  const orchestrator = createCheckoutOrchestrator({ cart, shipping, payment })
+  return { cart, shipping, payment, orchestrator }
 }
 ```
 
@@ -259,7 +261,9 @@ Keep the dependency graph one-way.
 **Simple one-way dependency** — inject explicitly:
 
 ```ts
-export function createPaymentStore({ cartStore }: { cartStore: CartStore }) { /* ... */ }
+export function createPaymentStore({ cartStore }: { cartStore: CartStore }) {
+  /* ... */
+}
 ```
 
 **Multi-store workflow or bidirectional relations** — add an orchestrator:
@@ -270,16 +274,16 @@ export function createCheckoutOrchestrator({
   shippingStore,
   paymentStore
 }: {
-  cartStore: CartStore;
-  shippingStore: ShippingStore;
-  paymentStore: PaymentStore;
+  cartStore: CartStore
+  shippingStore: ShippingStore
+  paymentStore: PaymentStore
 }) {
   async function submitOrder() {
-    const items = cartStore.items;
-    await paymentStore.pay({ items, total: cartStore.total });
-    cartStore.clear();
+    const items = cartStore.items
+    await paymentStore.pay({ items, total: cartStore.total })
+    cartStore.clear()
   }
-  return { submitOrder };
+  return { submitOrder }
 }
 ```
 
@@ -311,8 +315,8 @@ Component -> store -> devdock-api -> adapter -> transport
 - **Never destructure reactive getters**:
 
   ```ts
-  const { items } = store;        // captures the value once; breaks reactivity
-  const items = store.items;      // still a one-time read outside a reactive context
+  const { items } = store // captures the value once; breaks reactivity
+  const items = store.items // still a one-time read outside a reactive context
   ```
 
   Read inside a reactive context instead:
@@ -320,8 +324,9 @@ Component -> store -> devdock-api -> adapter -> transport
   ```svelte
   <span>{store.items.length}</span>
   ```
+
   ```ts
-  const count = $derived(store.items.length);
+  const count = $derived(store.items.length)
   ```
 
 - Do not create stores for static data.
@@ -333,18 +338,18 @@ Component -> store -> devdock-api -> adapter -> transport
 
 ## 8. Anti-patterns
 
-| Anti-pattern | Why it hurts | Do instead |
-|--------------|--------------|------------|
-| Everything is global | Boundaries disappear | Use the narrowest scope |
-| "Factory = scoped" | A factory only creates instances | Context defines visibility |
-| Direct imports between scoped stores | Silently creates global state | Inject explicitly |
-| Circular store dependencies | Unclear init order, untestable | Add an orchestrator |
-| `getContext` inside a store factory | Hidden dependency | Pass it as a parameter |
-| Giant root provider | Global state in disguise | Raise to the lowest common scope |
-| One store owns unrelated domains | Low cohesion | Split into cohesive stores |
-| Destructuring reactive getters | Loses reactivity | Read `store.prop` in a reactive context |
-| Exposing raw `$state` | External mutation | Return getters + actions |
-| Store for static data | Unnecessary reactivity | Use a plain constant |
+| Anti-pattern                         | Why it hurts                     | Do instead                              |
+| ------------------------------------ | -------------------------------- | --------------------------------------- |
+| Everything is global                 | Boundaries disappear             | Use the narrowest scope                 |
+| "Factory = scoped"                   | A factory only creates instances | Context defines visibility              |
+| Direct imports between scoped stores | Silently creates global state    | Inject explicitly                       |
+| Circular store dependencies          | Unclear init order, untestable   | Add an orchestrator                     |
+| `getContext` inside a store factory  | Hidden dependency                | Pass it as a parameter                  |
+| Giant root provider                  | Global state in disguise         | Raise to the lowest common scope        |
+| One store owns unrelated domains     | Low cohesion                     | Split into cohesive stores              |
+| Destructuring reactive getters       | Loses reactivity                 | Read `store.prop` in a reactive context |
+| Exposing raw `$state`                | External mutation                | Return getters + actions                |
+| Store for static data                | Unnecessary reactivity           | Use a plain constant                    |
 
 ---
 

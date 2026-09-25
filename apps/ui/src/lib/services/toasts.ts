@@ -1,4 +1,4 @@
-import { toast } from 'svelte-sonner';
+import { toast } from 'svelte-sonner'
 
 /**
  * Global toast API.
@@ -15,4 +15,4 @@ export const notify = {
   promise: toast.promise,
   dismiss: toast.dismiss,
   custom: toast.custom
-};
+}

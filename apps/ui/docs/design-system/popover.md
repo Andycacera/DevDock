@@ -9,7 +9,7 @@
 
 ```svelte
 <script lang="ts">
-  import { UiPopover } from '$lib';
+  import { UiPopover } from '$lib'
 </script>
 ```
 
@@ -17,18 +17,18 @@ Not used in the app yet; it is prepared for future features that need tap/click 
 
 ## Props
 
-| Prop | Type | Default | Notes |
-|------|------|---------|-------|
-| `open` | `boolean` (bindable) | `false` | |
-| `trigger` | `Snippet` | — | Trigger content (required) |
-| `children` | `Snippet` | — | Popover content (required) |
-| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `'bottom'` | |
-| `align` | `'start' \| 'center' \| 'end'` | `'center'` | |
-| `sideOffset` | `number` | `8` | |
-| `trapFocus` | `boolean` | `true` | |
-| `onOpenChange` | `(open: boolean) => void` | — | |
-| `class` | `string` | — | Applied to the trigger |
-| `contentClass` | `string` | — | Applied to the panel |
+| Prop           | Type                                     | Default    | Notes                      |
+| -------------- | ---------------------------------------- | ---------- | -------------------------- |
+| `open`         | `boolean` (bindable)                     | `false`    |                            |
+| `trigger`      | `Snippet`                                | —          | Trigger content (required) |
+| `children`     | `Snippet`                                | —          | Popover content (required) |
+| `side`         | `'top' \| 'right' \| 'bottom' \| 'left'` | `'bottom'` |                            |
+| `align`        | `'start' \| 'center' \| 'end'`           | `'center'` |                            |
+| `sideOffset`   | `number`                                 | `8`        |                            |
+| `trapFocus`    | `boolean`                                | `true`     |                            |
+| `onOpenChange` | `(open: boolean) => void`                | —          |                            |
+| `class`        | `string`                                 | —          | Applied to the trigger     |
+| `contentClass` | `string`                                 | —          | Applied to the panel       |
 
 Any other props (e.g. `data-btn data-base`) are forwarded to the trigger element.
 
@@ -36,9 +36,9 @@ Any other props (e.g. `data-btn data-base`) are forwarded to the trigger element
 
 ```svelte
 <script lang="ts">
-  import { UiPopover, notify } from '$lib';
+  import { UiPopover, notify } from '$lib'
 
-  let open = $state(false);
+  let open = $state(false)
 </script>
 
 <UiPopover bind:open data-btn data-base data-outline class="px-4 py-2">
@@ -59,7 +59,7 @@ Any other props (e.g. `data-btn data-base`) are forwarded to the trigger element
 Pass content as snippets and communicate with plain function props (Svelte 5):
 
 ```svelte
-<UiPopover onOpenChange={(v) => console.log('open:', v)}>…</UiPopover>
+<UiPopover onOpenChange={v => console.log('open:', v)}>…</UiPopover>
 ```
 
 Inside the content snippet, call the caller's handlers directly (closures) or close the
@@ -67,11 +67,11 @@ popover by setting the bound `open` to `false`:
 
 ```svelte
 <script lang="ts">
-  let open = $state(false);
+  let open = $state(false)
 
   function handleAction(id: string) {
-    console.log('action:', id);
-    open = false;
+    console.log('action:', id)
+    open = false
   }
 </script>
 ```

@@ -10,24 +10,24 @@ Requires `<Tooltip.Provider>` as an ancestor (mounted once in the root layout).
 
 ```svelte
 <script lang="ts">
-  import { UiTooltip } from '$lib';
+  import { UiTooltip } from '$lib'
 </script>
 ```
 
 ## Props
 
-| Prop | Type | Default | Notes |
-|------|------|---------|-------|
-| `trigger` | `Snippet` | — | Trigger content (required) |
-| `content` | `string` | — | Simple text content |
-| `children` | `Snippet` | — | Rich content (overrides `content`) |
-| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `'top'` | |
-| `align` | `'start' \| 'center' \| 'end'` | `'center'` | |
-| `sideOffset` | `number` | `8` | |
-| `delayDuration` | `number` | `700` | ms before opening on hover |
-| `open` | `boolean` (bindable) | — | Only when you need programmatic control |
-| `class` | `string` | — | Applied to the trigger |
-| `contentClass` | `string` | — | Applied to the bubble |
+| Prop            | Type                                     | Default    | Notes                                   |
+| --------------- | ---------------------------------------- | ---------- | --------------------------------------- |
+| `trigger`       | `Snippet`                                | —          | Trigger content (required)              |
+| `content`       | `string`                                 | —          | Simple text content                     |
+| `children`      | `Snippet`                                | —          | Rich content (overrides `content`)      |
+| `side`          | `'top' \| 'right' \| 'bottom' \| 'left'` | `'top'`    |                                         |
+| `align`         | `'start' \| 'center' \| 'end'`           | `'center'` |                                         |
+| `sideOffset`    | `number`                                 | `8`        |                                         |
+| `delayDuration` | `number`                                 | `700`      | ms before opening on hover              |
+| `open`          | `boolean` (bindable)                     | —          | Only when you need programmatic control |
+| `class`         | `string`                                 | —          | Applied to the trigger                  |
+| `contentClass`  | `string`                                 | —          | Applied to the bubble                   |
 
 Any other props (e.g. `data-btn data-base`) are forwarded to the trigger element.
 
@@ -49,7 +49,7 @@ Controlled (programmatic/click):
 
 ```svelte
 <script lang="ts">
-  let open = $state(false);
+  let open = $state(false)
 </script>
 
 <UiTooltip bind:open content="Controlled">…</UiTooltip>

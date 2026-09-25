@@ -1,18 +1,18 @@
-import { dev } from '$app/environment';
-import { PUBLIC_DD_BRIDGE_URL, PUBLIC_DD_TARGET } from '$env/static/public';
-import type { DevDockBridge } from '@devdock/shared';
+import { dev } from '$app/environment'
+import { PUBLIC_DD_BRIDGE_URL, PUBLIC_DD_TARGET } from '$env/static/public'
+import type { DevDockBridge } from '@devdock/shared'
 
-export type DevDockTarget = 'electron' | 'tauri' | 'bridge' | 'mock';
+export type DevDockTarget = 'electron' | 'tauri' | 'bridge' | 'mock'
 
 export interface RuntimeGlobals {
-  devdock?: DevDockBridge;
-  tauriInternals?: unknown;
+  devdock?: DevDockBridge
+  tauriInternals?: unknown
 }
 
 export interface RuntimeEnv {
-  forcedTarget?: DevDockTarget;
-  bridgeUrl?: string;
-  isDev: boolean;
+  forcedTarget?: DevDockTarget
+  bridgeUrl?: string
+  isDev: boolean
 }
 
 /**
@@ -21,18 +21,18 @@ export interface RuntimeEnv {
  * Everything else consumes the typed results returned from here.
  */
 export function readRuntimeGlobals(): RuntimeGlobals {
-  const globals = globalThis as Record<string, unknown>;
+  const globals = globalThis as Record<string, unknown>
   return {
     devdock: globals['devdock'] as DevDockBridge | undefined,
     tauriInternals: globals['__TAURI_INTERNALS__']
-  };
+  }
 }
 
 function parseTarget(value: string): DevDockTarget | undefined {
   if (value === 'electron' || value === 'tauri' || value === 'bridge' || value === 'mock') {
-    return value;
+    return value
   }
-  return undefined;
+  return undefined
 }
 
 /**
@@ -46,5 +46,5 @@ export function readRuntimeEnv(): RuntimeEnv {
     forcedTarget: parseTarget(PUBLIC_DD_TARGET),
     bridgeUrl: PUBLIC_DD_BRIDGE_URL || undefined,
     isDev: dev
-  };
+  }
 }
