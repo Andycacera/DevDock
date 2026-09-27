@@ -14,20 +14,25 @@
   })
 </script>
 
-<div class="flex flex-col w-full h-full overflow-hidden">
-  <StatsRow />
+<div class="flex justify-start items-start w-full h-full overflow-hidden">
+  <div class="flex flex-col w-full h-full overflow-hidden">
+    <StatsRow />
 
-  <!-- DOM order is unassigned -> routes so `md` matches the reference. On `lg+`
-       the wrappers swap with `order`: routes in the wide column, unassigned in
-       the narrow one. -->
-  <div
-    class="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_30rem] gap-8 w-full h-full items-start p-8 overflow-hidden"
-  >
-    <div class="flex w-full h-full overflow-hidden xl:order-2">
-      <UnassignedList />
-    </div>
-    <div class="flex w-full h-full overflow-hidden xl:order-1">
-      <AssignedList />
+    <!-- The wrapper is the query container (an element cannot query itself). The
+         layout responds to this width, not the viewport. Base = narrow stack
+         (unassigned first, then routes). At >=1024px the panels go side by side:
+         routes in the wide column, unassigned in the narrow one. -->
+    <div class="@container flex-1 min-h-0 w-full overflow-hidden">
+      <div
+        class="grid grid-cols-1 grid-rows-[auto_minmax(0,1fr)] @min-[1024px]:grid-cols-[minmax(0,1fr)_30rem] @min-[1024px]:grid-rows-[minmax(0,1fr)] gap-8 w-full h-full items-start p-8 overflow-hidden"
+      >
+        <div class="flex w-full h-full overflow-hidden @min-[1024px]:order-2">
+          <UnassignedList />
+        </div>
+        <div class="flex w-full h-full overflow-hidden @min-[1024px]:order-1">
+          <AssignedList />
+        </div>
+      </div>
     </div>
   </div>
 </div>

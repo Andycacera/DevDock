@@ -11,7 +11,10 @@
 
 <section class="flex flex-col gap-4 w-full h-full overflow-hidden">
   <header class="flex items-center gap-3 w-full">
-    <Icon icon="material-symbols:route-rounded" class="text-2xl text-aqua-cyan-300" />
+    <Icon
+      icon="material-symbols:route-rounded"
+      class="w-fit min-w-fit text-2xl text-aqua-cyan-300"
+    />
     <h2 class="text-xl font-semibold">Assigned Routes</h2>
 
     <div class="ml-auto flex items-center gap-2 pr-1">
@@ -62,9 +65,20 @@
         </div>
       </div>
     {:else}
-      <div class="flex flex-col w-full gap-3">
+      <div class="flex flex-col w-full h-full gap-3">
         {#each filteredRoutes as route (route.id)}
           <RouteRow {route} />
+        {:else}
+          <div
+            class="flex justify-center items-center w-full h-full border-4 border-border-muted rounded-xl"
+          >
+            <div class="flex flex-col justify-center items-center gap-8">
+              <div class="flex gap-2 text-muted">
+                <Icon icon="material-symbols:search-off-rounded" class="text-3xl leading-none" />
+                <span class="font-bold text-2xl">Route not found :(</span>
+              </div>
+            </div>
+          </div>
         {/each}
       </div>
     {/if}
